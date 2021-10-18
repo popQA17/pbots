@@ -7,10 +7,10 @@ app = Flask(__name__)
 app.secret_key = b"%\xe0'\x01\xdeH\x8e\x85m|\xb3\xffCN\xc9g"
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "true"    # !! Only in development environment.
 
-app.config["DISCORD_CLIENT_ID"] = 874575884135313419
-app.config["DISCORD_CLIENT_SECRET"] = "Ap23l0dspbVRHf0pkOX5dwnJNd06Ownl"
-app.config["DISCORD_BOT_TOKEN"] = "ODc0NTc1ODg0MTM1MzEzNDE5.YRI-Qw.nhwv884A57WWN6UoqxWCS2-_v6Y"
-app.config["DISCORD_REDIRECT_URI"] = "https://pbots-tk-py-alpha.popqa17.repl.co/callback"
+app.config["DISCORD_CLIENT_ID"] = 10000000
+app.config["DISCORD_CLIENT_SECRET"] = ""
+app.config["DISCORD_BOT_TOKEN"] = ""
+app.config["DISCORD_REDIRECT_URI"] = "https://localhost/callback"
 
 discord = DiscordOAuth2Session(app)
 
