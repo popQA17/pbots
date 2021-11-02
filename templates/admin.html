@@ -1,0 +1,102 @@
+{% include 'links.html'%}
+<br>
+<br>
+<a href = "/me" class="btn btn-pbots"> Return </a>
+
+  <div class = "col" id = "configuration" style = "text-align: center;">
+    <br>
+    <br>
+  <h1>
+    Unapproved bots
+  </h1>
+  <br>
+  <br>
+  <table style = "text-align: center; width: 700px;">
+  <thead>
+    <tr>
+      <th>Bot name</th>
+      <th>Bot id</th>
+      <th>Page</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for bot in bots.find({"status": "unapproved"})%}
+    <tr>
+      <td style= "width: 200px;">{{bot['bot']}}</td>
+      <td>{{bot['botid']}}</td>
+        <td><a href = "/bot/{{bot['boidt']}}" class = "btn btn-pbots">Bot page </a></td>
+      <td><a href = "/approve/{{bot['botid']}}" class = "btn btn-success">Approve</td>
+      <td><a href = "/deny/{{bot['botid']}}" class = "btn btn-danger">Deny</td>
+
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+<br>
+<br>
+<br>
+  <h1>
+    Approved bots
+  </h1>
+  <br>
+  <br>
+  <table style = "text-align: center; width: 700px;">
+  <thead>
+    <tr>
+      <th>Bot name</th>
+      <th>Bot id</th>
+      <th>Page</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for bot in bots.find({"status": "approved"})%}
+    {%if bot['featured'] == "false"%}
+    <tr>
+      <td style= "width: 200px;">{{bot['bot']}}</td>
+      <td>{{bot['botid']}}</td>
+        <td><a href = "/bot/{{bot['botid']}}" class = "btn btn-pbots">Bot page </a></td>
+        <td><a href = "/adelete/{{bot['botid']}}" class = "btn btn-danger">Delete</a></td>
+        <td><a href = "/feature/{{bot['botid']}}" class = "btn btn-success" style="background: #ff9100; border: none;">Feature</a></td>
+
+    </tr>
+    {%endif%}
+    {%endfor%}
+  </tbody>
+</table>
+<br>
+<br>
+  <h1>
+    Featured bots
+  </h1>
+  <br>
+  <br>
+  <table style = "text-align: center; width: 700px;">
+  <thead>
+    <tr>
+      <th>Bot name</th>
+      <th>Bot id</th>
+      <th>Page</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for bot in bots.find({"featured": "yes"})%}
+    <tr>
+      <td style= "width: 200px;">{{bot['bot']}}</td>
+      <td>{{bot['botid']}}</td>
+        <td><a href = "/bot/{{bot['botid']}}" class = "btn btn-pbots">Bot page </a></td>
+      <td><a href = "/unfeature/{{bot['botid']}}" class = "btn btn-success" style="background: #ff9100; border: none;">Unfeature</td>
+
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+</div>
+<style>
+  table{
+    margin: 0 auto;
+  }
+</style>
+  {% include 'foot.html'%}

@@ -1,0 +1,59 @@
+{% include 'links.html'%}
+<div class = "row">
+        <button class="btn btn-dark leftnavbtn" style="width: 100%;"><i class="fas fa-chevron-down"></i></button>
+
+  <div style ="position: fixed;"class = "col-5 leftnav">
+<ul class="edit">
+  <img style = "border-radius: 100%; width: 100px; heightL 100px;" src="{{user.avatar_url}}">
+  <h1> {{user.name}} <small>#{{user.discriminator}}</small></h1>
+<li>
+<a class="active">Bots</a>
+</li>
+<li>
+<a href = "/me/config">Configure</a>
+</li>
+{%if admin%}
+<li>
+<a href = "/admin">Admin Panel</a>
+</li>
+{%endif%}
+</ul>
+  <button class="btn btn-dark innernavbtn" style="width: 100%;"><i class="fas fa-chevron-up"></i></button>
+
+  </div>
+  <div class="col-5 fakecol">
+  </div>
+  <div class = "col" id = "bots">
+
+    <br>
+    <br>
+    
+<div>
+  <h1> Your bots </h1>
+{% for bot in bots %}
+<div class = "col">
+<div class="card" style="width: 90%;">
+  <div class = "row">
+  <div class = "col col-sm-2" style = "padding: 10px;">
+    <center>
+  <img style = "border-radius: 100%;" src={{bot['botavatar']}} style = "background: transparent; margin: 10%:" alt="...">
+    </center>
+  </div>
+  <div class ="col">
+  <div class="card-body">
+    <h3 class="card-title">{{bot["bot"]}}</h3>
+    <p class="card-text">{{bot["shortdesc"]}}</p>
+    <div style = "text-align: right;">
+    <a href="/bot/{{bot['botid']}}" class="btn btn-secondary">View</a>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+  </div>
+{%endfor%}
+</div>
+  </div>
+</div>
+
+  {% include 'foot.html'%}

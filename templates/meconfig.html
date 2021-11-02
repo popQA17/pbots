@@ -1,0 +1,66 @@
+{% include 'links.html'%}
+<div class = "row">
+    <button class="btn btn-dark leftnavbtn" style="width: 100%;"><i class="fas fa-chevron-down"></i></button>
+
+  <div style ="position: fixed;"class = "col-5 leftnav">
+<ul class="edit">
+  <img style = "border-radius: 100%; width: 100px; heightL 100px;" src="{{user.avatar_url}}">
+  <h1> {{user.name}} <small>#{{user.discriminator}}</small></h1>
+<li>
+<a href="/me">Bots</a>
+</li>
+<li>
+<a class = "active">Configure</a>
+</li>
+{% if admin%}
+<li>
+<a href = "/admin">Admin Panel</a>
+</li>
+{%endif%}
+</ul>
+  <button class="btn btn-dark innernavbtn" style="width: 100%;"><i class="fas fa-chevron-up"></i></button>
+
+  </div>
+  <div class = "col-5 fakecol">
+  </div>
+  <div class = "col" id = "configuration">
+    <br>
+    <br>
+<div class="content" style = "margin-right: 200px; text-align: center;">
+  <h1> Configuration </h1>
+  <p> Change how the site looks! </p>
+  <div style = "background: transparent" class="accordion accordion-flush" id="accordionFlushExample">
+  <div style = "background: transparent" class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button   class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        Themes
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body"><div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group me-2" role="group" aria-label="First group">
+    <button onclick="blue()"type="button" class="btn btn-dark"><i style = "color: #65c7ce;" class="fas fa-circle"></i>Blue</button>
+    <button type="button" onclick="red()"class="btn btn-dark"><i style = "color: #FF3131;"class="fas fa-circle"></i>Red</button>
+  </div></div>
+    </div>
+  </div>
+  
+  </div>
+</div>
+</div>
+  </div>
+</div>
+<script>
+  function blue(){
+    document.body.removeAttribute('data-theme');
+    document.body.style.backgroundImage = "linear-gradient(var(--gradient-color) 1px, #000 100%)"
+
+    localStorage.setItem("theme", "blue");
+  }
+    function red(){
+    document.body.setAttribute('data-theme', 'red');
+    document.body.style.backgroundImage = "linear-gradient(#5c1111 1px, #000 100%)"
+    localStorage.setItem("theme", "red");
+  }
+</script>
+  {% include 'foot.html'%}

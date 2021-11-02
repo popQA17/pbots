@@ -1,0 +1,456 @@
+:root {
+  --gradient-color: #052c52;
+  --button-color: #3bb1b9;
+  --default-links-color: #65c7ce;
+}
+
+[data-theme="red"] {
+
+  --gradient-color: #5c1111;
+  --button-color: #FF3131;
+  --default-links-color: #FF3131;
+}
+
+.section-ava{
+  text-align: center;
+  color: white;
+  margin-bottom: 100px;
+}
+.bot-section{
+  padding: 5%;
+}
+/* Other styles for the page not related to the animated dropdown */
+.btn-outline-submit {
+  background-color: transparent;
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.btn-outline-submit:hover {
+  background-color: #5865F2;
+  border: 2px solid #5865F2;
+  color: #ffffff;
+}
+.btn-submit {
+  background-color: #7289da;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.btn-submit:hover {
+  background-color: #4453fa;
+  color: #ffffff;
+}
+
+.card {
+    border: solid 0.1px #4b151b;
+    background: transparent;
+    border-radius: 10px;
+    transition: all 0.5s;
+    margin: 20px;
+
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 3px 3px #000;
+}
+.btn-discord-edit {
+    background-color: #7289da;
+    color:#fff;
+    padding: 5px 15px;
+    transition: all 0.2s;
+}
+.btn-discord-edit:hover {
+    background-color: #2c2f33;
+    color:#fff;
+}
+form{
+  margin: 10%;
+}
+body{
+  color: white;
+
+  background: transparent;
+}
+html{
+background-color: var(--gradient-color);
+background-image: linear-gradient(var(--gradient-color) 1px, #000 100%);
+}*{
+    margin: 0;
+    padding: 0;
+    color: #f2f5f7;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+body{
+    overflow-x: hidden;
+}
+#navbar2{
+  background: #fff;
+}
+.btn-pbots{
+  background: var(--button-color);
+}
+
+
+.btn{
+  font-size: 17px;
+  color: white;
+  border-radius: 5px;
+  margin: 3px;
+  text-decoration: none;
+}
+.btn:hover{
+  color: white;
+}
+.btn-discord{
+  background: #5773da;
+}
+
+.btn-outline-pvots{
+  background: transparent;
+  border: 1px solid var(--button-color);
+  color: white;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 10px;
+  text-decoration: none;
+  transition: linear all 0.5;
+}
+.btn-outline-pbots:hover{
+  background: var(button-color);
+
+  color: white;
+}
+small{
+  font-weight: 100;
+  font-size: 20px;
+}
+nav{
+    height: 6rem;
+    width: 100vw;
+    background-color: transparent;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    position: fixed;
+    z-index: 10;
+}
+
+/*Styling logo*/
+.logo{
+    padding:1vh 1vw;
+    text-align: center;
+}
+.logo img {
+    height: 5rem;
+    width: 5rem;
+}
+#longdescarea a{
+  color: var(--default-links-color);
+  text-decoration: none;
+}
+/*Styling Links*/
+.nav-links{
+    display: flex;
+    list-style: none; 
+    width: 88vw;
+    padding: 0 0.7vw;
+    justify-content: space-evenly;
+    align-items: center;
+    text-transform: uppercase;
+}
+.nav-links li a{
+    color: rgb(211, 211, 211);
+    text-decoration: none;
+    margin: 0 0.7vw;
+}
+.nav-links li a:hover {
+    color: white;
+}
+.nav-links li {
+    color: white;
+    position: relative;
+}
+.nav-links li a::before {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0%;
+    background-color: var(--default-links-color);
+    position: absolute;
+    transition: all ease-in-out 250ms;
+    margin: 0 0 0 10%;
+}
+.nav-links li a:hover::before{
+    width: 80%;
+}
+
+/*Styling Buttons*/
+.login-button{
+    background-color: transparent;
+    border: 1.5px solid #f2f5f7;
+    border-radius: 2em;
+    padding: 0.6rem 0.8rem;
+    margin-left: 2vw;
+    font-size: 1rem;
+    cursor: pointer;
+
+}
+.login-button:hover {
+    color: #131418;
+    background-color: #f2f5f7;
+    border:1.5px solid #f2f5f7;
+    transition: all ease-in-out 350ms;
+}
+.join-button{
+    color: #131418;
+    background-color: #61DAFB;
+    border: 1.5px solid #61DAFB;
+    border-radius: 2em;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.join-button:hover {
+    color: #f2f5f7;
+    background-color: transparent;
+    border:1.5px solid #f2f5f7;
+    transition: all ease-in-out 350ms;
+}
+
+/*Styling Hamburger Icon*/
+.hamburger div{
+    width: 30px;
+    height:3px;
+    background: #f2f5f7;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+.hamburger{
+    display: none;
+}
+
+/*Stying for small screens*/
+@media screen and (max-width: 800px){
+    nav{
+        position: fixed;
+        z-index: 3;
+    }
+    .hamburger{
+        display:block;
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+        z-index: 2;
+        transition: all 0.7s ease;
+    }
+    .nav-links{
+        position: fixed;
+        background: #131418;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(50px at 90% -20%);
+        -webkit-clip-path: circle(50px at 90% -10%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+    }
+    .nav-links.open{
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+    .nav-links li{
+        opacity: 1;
+    }
+    .nav-links li:nth-child(1){
+        transition: all 0.5s ease 0.2s;
+    }
+    .nav-links li:nth-child(2){
+        transition: all 0.5s ease 0.4s;
+    }
+    .nav-links li:nth-child(3){
+        transition: all 0.5s ease 0.6s;
+    }
+    .nav-links li:nth-child(4){
+        transition: all 0.5s ease 0.7s;
+    }
+    .nav-links li:nth-child(5){
+        transition: all 0.5s ease 0.8s;
+    }
+    .nav-links li:nth-child(6){
+        transition: all 0.5s ease 0.9s;
+        margin: 0;
+    }
+    .nav-links li:nth-child(7){
+        transition: all 0.5s ease 1s;
+        margin: 0;
+    }
+    li.fade{
+        opacity: 1;
+    }
+}
+/*Animating Hamburger Icon on Click*/
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+    transition: all 0.7s ease;
+    width:0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
+}
+@-webkit-keyframes growIn{
+  0%{transform:scale(.9);opacity:0}100%{transform:scale(1);opacity:1}
+}
+.edit {
+  text-align: center;
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 200px;
+  background: transparent;
+}
+
+.edit li button {
+  display: block;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  width: 100%;
+}
+
+/* Change the link color on hover */
+.edit li button:hover {
+  background-color: var(--button-color);
+  color: white;
+}
+.active {
+  background-color: var(--button-color);
+  color: white;
+}
+.edit li a {
+  display: block;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+.leftnavbtn{
+  display: none;
+}
+/* Change the link color on hover */
+.edit li a:hover {
+  background-color: var(--button-color);
+  color: white;
+}
+.innernavbtn{
+    display: none;
+}
+@media screen and (max-width: 800px){
+  .leftnav{
+    display: none;
+    background: #131418;
+    height: 100%;
+    width: 100%;
+     z-index: 9;
+    padding: 50px;
+    overflow: hidden;
+    position: fixed;
+  }
+    .fakecol{
+    display: none;
+  }
+  .leftnavbtn{
+    display: block;
+  }
+  .innernavbtn{
+    display: block;
+  }
+}
+.animated--grow-in,.sidebar .nav-item .collapse{
+  -webkit-animation-name:growIn;
+  animation-name:growIn;
+  -webkit-animation-duration:.2s;
+  animation-duration:.2s;
+  -webkit-animation-timing-function:transform cubic-bezier(.18,1.25,.4,1),opacity cubic-bezier(0,1,.4,1);
+  animation-timing-function:transform cubic-bezier(.18,1.25,.4,1),opacity cubic-bezier(0,1,.4,1)
+  }
+
+/* Make clicks pass-through */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: var(--button-color);
+
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px var(--button-color), 0 0 5px var(--button-color);
+  opacity: 1.0;
+
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+      -ms-transform: rotate(3deg) translate(0px, -4px);
+          transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  top: 15px;
+  right: 15px;
+}
+
+#nprogress .spinner-icon {
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+
+  border: solid 2px transparent;
+  border-top-color: var(--button-color);
+  border-left-color: var(--button-color);
+  border-radius: 50%;
+
+  -webkit-animation: nprogress-spinner 400ms linear infinite;
+          animation: nprogress-spinner 400ms linear infinite;
+}
+
+.nprogress-custom-parent {
+  overflow: hidden;
+  position: relative;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+  position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+  0%   { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes nprogress-spinner {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

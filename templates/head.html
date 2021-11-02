@@ -1,0 +1,46 @@
+
+<nav id="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo Image">
+        </div>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/add-bot">Add bot</a></li>
+            <li><a href="/bots">Bots</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/discord">Discord</a></li>
+            {% if discord.authorized%}
+              {%set user = discord.fetch_user()%}
+       <li class = "nav-item dropdown">
+       <button onclick="window.location.href = '/me'" class="login-button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+         <img src = "{{user.avatar_url}}" style = "border-radius: 100%; width: 20px; height: 20px;">
+         {{user.name}} #{{user.discriminator}}
+        </button>
+
+       </li>
+        {%else%}
+            <li><button onclick="window.location.href='/login';" id = "loginbtn" class="login-button" href="/login">Login</button></li>
+        {%endif%}
+        </ul>
+    </nav>
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const links = document.querySelectorAll(".nav-links li");
+
+hamburger.addEventListener('click', ()=>{
+   //Animate Links
+    navLinks.classList.toggle("open");
+
+
+    //Hamburger Animation
+    hamburger.classList.toggle("toggle");
+});
+</script>
+<div id = "scrolltill">
+</div>

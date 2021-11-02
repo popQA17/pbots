@@ -1,0 +1,21 @@
+<script>
+  if (localStorage.getItem("theme") === "red"){
+    document.body.setAttribute('data-theme', 'red')
+    document.body.style.backgroundImage = "linear-gradient(#5c1111 1px, #000 100%)"
+  }
+</script>
+<script>
+  $(".leftnavbtn").on('click', function(event){
+    $('.leftnav').slideToggle()
+});
+  $(".innernavbtn").on('click', function(event){
+    $('.leftnav').slideToggle()
+});
+</script>
+<script>
+  function finish(){
+    NProgress.done();
+  }
+  NProgress.start();
+  setTimeout(finish, 1000)
+</script>

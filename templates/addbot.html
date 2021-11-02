@@ -1,0 +1,112 @@
+{%include 'links.html'%}
+
+<html>
+  <body class="body">
+  <h1> Add a bot </h1>
+  <div style="display: none;" id = "erruser">
+    <h3> That id was invalid. </h3>
+  </div>
+  <br>
+  <form id = "form">
+      <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Bot Id / Client Id</label>
+    <div class="col-sm-10">
+      <input type="number" id = "clientid" class="form-control" required>
+    </div>
+  </div>
+        <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Prefix</label>
+    <div class="col-sm-10">
+      <input type="text" id = "prefix" class="form-control" required>
+    </div>
+  </div>
+      </div>
+             <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Invite url</label>
+    <div class="col-sm-10">
+      <input type="text" id = "inviteurl" class="form-control">
+    </div>
+  </div>
+       <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Short description</label>
+    <div class="col-sm-10">
+      <input type="text" id = "shortdesc" class="form-control" required>
+    </div>
+  </div>
+    <br>
+    <label>long description</label>
+      <textarea style = "height: 300px;" id = "longdesc" class="form-control" required></textarea>
+  <br>
+       <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Website</label>
+    <div class="col-sm-10">
+      <input type="text" id = "website" class="form-control" required>
+    </div>
+       </div>
+    <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Banner</label>
+        <div class="col-sm-10">
+      <input type="text" value = "none" id="banner" disabled class="form-control" required>
+    </div>
+  </div>
+  <input id="submitbot" class = "btn btn-pbots" type = "submit">
+  </form>
+  </body>
+</html>
+<script>
+    var socket = io.connect();
+
+  $(document).ready(function () {
+    document.getElementById('submitbot').onclick = event => {
+        event.preventDefault();
+        var longdesc = document.getElementById("longdesc").value
+
+        longdesc = longdesc.replace(/"/g,  "'")
+        longdesc = longdesc.replace(/(\n)+/g, '<br />');
+        socket.emit('submitbot', {id: document.getElementById('clientid').value,  shortdesc: document.getElementById("shortdesc").value, longdesc: longdesc, prefix: document.getElementById("prefix").value, banner: document.getElementById("banner").value, website: document.getElementById("website").value, invite: document.getElementById("inviteurl").value});
+    };
+});
+  socket.on('error', data => {
+    Swal.fire({
+  icon: 'error',
+  title: 'Error!',
+  text: data.error
+})
+  });
+  socket.on('submitted', data => {
+    Swal.fire({
+      title: 'Success!',
+      text: "Your bot has been successfully added into our system.",
+      icon: 'success'
+    }).then((result) => {
+      
+        window.location.href = `/bot/${document.getElementById('clientid').value}`
+      
+    })
+  });
+</script>
+
+  <script>
+    $(document).ready(function() {
+      toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": true,
+      "positionClass": "toast-top-right",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "100000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+}
+
+
+    });
+    </script>
+  {% include 'foot.html'%}

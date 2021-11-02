@@ -1,0 +1,6 @@
+Flask-Discord
+FlaskSocketIO
+dnspython
+pymongo
+Flask-Turbolinks
+Flask

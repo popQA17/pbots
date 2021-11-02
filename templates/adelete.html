@@ -1,0 +1,31 @@
+{% include 'links.html'%}
+<div class = "row">
+  <div style ="position: fixed;"class = "col-5 leftnav">
+<ul class="edit">
+  <img style = "border-radius: 100%; width: 100px; heightL 100px;" src="{{user.avatar_url}}">
+  <h1> {{user.name}} <small>#{{user.discriminator}}</small></h1>
+<li>
+<a href="/me">Bots</a>
+</li>
+<li>
+<a href="/me/config">Configure</a>
+</li>
+<li>
+<a class="active">Admin Panel</a>
+</li>
+</ul>
+  </div>
+  <div class = "col-5 leftnav">
+  </div>
+  <div class = "col" id = "configuration">
+    <br>
+    <br>
+  <form method="POST">
+    <label> Reason </label>
+    <input type="text" class="form-control"name="reason" placeholder="Not online when testing, breaks the bot guidelines rule number.."required>
+    <button type="submit" class="btn btn-pbots">Deny</button>
+  </form>
+</div>
+  </div>
+</div>
+  {% include 'foot.html'%}

@@ -1,0 +1,77 @@
+{%include 'links.html'%}
+
+<html>
+  <body class="body">
+    <div class = "section-ava">
+      <div class = "row">
+        <div class = "col" style = "text-align: left;">
+    <h1> Pbots </h1>
+    <br>
+    <br>
+    <p> Want to expand your audience? Want to make your bot better known? Pbots is your go-to choice. Add your bot, today.</p>
+      </div>
+      <div class = "col">
+        <img width=200 height=200 src = "{{ url_for('static', filename='img/logo.png') }}">
+    </div>
+      </div>
+<div class = "row" style = "text-align: left">
+<h1> Featured Bots </h1>
+{% for bot in bots.find({"featured": "yes"}).limit(4) %}
+<div class = "col">
+<div class="card" style="width: 90%;">
+  <div class = "row">
+  <div class = "col col-sm-2" style = "padding: 10px;">
+    <center>
+  <img style = "border-radius: 100%;" src={{bot['botavatar']}} style = "background: transparent; margin: 10%:" alt="Bot's Avatar">
+    </center>
+  </div>
+  <div class ="col">
+  <div class="card-body">
+    <h3 class="card-title">{{bot["bot"]}}</h3>
+    <p class="card-text">{{bot["shortdesc"]}}</p>
+    <div style = "text-align: right;">
+    <a href="/bot/{{bot['botid']}}" class="btn btn-secondary">View</a>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+  </div>
+{%endfor%}
+</div>
+<div class = "row" style = "text-align: left">
+<h1> Approved Bots </h1>
+<p> (these bots are grouped by the number of votes they have)
+{% for bot in bots.find({"status": "approved"}).limit(4) %}
+
+<div class = "col">
+  {% if bot['featured'] == "yes"%}
+<div class="card" style="width: 90%; background: #ff9100;">
+  {%else%}
+  <div class="card" style="width: 90%;">
+  {%endif%}
+
+  <div class = "row">
+  <div class = "col col-sm-2" style = "padding: 10px;">
+    <center>
+  <img style = "border-radius: 100%;" src={{bot['botavatar']}} style = "background: transparent; margin: 10%:" alt="Bot's Avatar">
+    </center>
+  </div>
+  <div class ="col">
+  <div class="card-body">
+    <h3 class="card-title">{{bot["bot"]}}</h3>
+    <p class="card-text">{{bot["shortdesc"]}}</p>
+    <div style = "text-align: right;">
+    <a href="/bot/{{bot['botid']}}" class="btn btn-secondary">View</a>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+  </div>
+{%endfor%}
+</div>
+    </div>
+  </body>
+</html>
+{%include 'foot.html'%}

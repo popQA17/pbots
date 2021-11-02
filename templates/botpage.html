@@ -1,0 +1,45 @@
+{%include 'links.html'%}
+
+<div class = "row">
+  <div class = "col">
+<section class = "bot-section">
+  <div class = "row">
+    <div  style = "background-repeat: no-repeat; background-image: url('{{bot['botavatar']}}'); width: 150px; height: 150px; padding: 20px;">
+    </div>
+    <div class = "col">
+  <h1> {{bot['bot']}}   
+  {% if staff%}  
+  <a href = "/bot/{{bot['botid']}}/edit"class='btn btn-discord'><i class="fas fa-pencil-alt"></i></a></h1>
+  {%endif%}
+  <p> {{bot['shortdesc']}} </p>
+    </div>
+    <div class= "col-2">
+      <br>
+      <br>
+        <a href = "{{bot['invite']}}" class = "btn btn-discord"><i class="fas fa-user-plus"></i> Invite </a>
+        <a href = "/bot/{{bot['botid']}}/vote" class = "btn btn-discord"><i class="fas fa-vote-yea"></i> Vote </a>
+    </div>
+  </div>
+</section>
+<style>
+  iframe{
+    width: 1000px;
+    height: 500px;
+    margin: 50px;
+    border-radius: 10px;
+  }
+</style>
+{%if bot['status'] == "unapproved"%}
+<div style = "border-radius: 10px; background: #23272A;margin: 0 auto; padding: 10px; text-align: center; width: 400px;">
+  <h5><i style = "color: #cc3131;" class="far fa-times-circle"></i> Your bot isn't approved yet. </h5>
+  <p> Your bot's page won't be visible to anyone except you and Pbots Staff. </p>
+</div>
+{%endif%}
+<section id="longdescarea" class="bot-section">
+</section>
+  </div>
+</div>
+<script>
+  document.getElementById("longdescarea").innerHTML = "{{bot['longdesc'] | safe}}"
+</script>
+  {% include 'foot.html'%}
